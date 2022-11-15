@@ -3,17 +3,32 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		111A64582923D07300EE6FD6 /* ios_sampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111A64572923D07300EE6FD6 /* ios_sampleApp.swift */; };
-		111A645A2923D07300EE6FD6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111A64592923D07300EE6FD6 /* ContentView.swift */; };
+		111A64582923D07300EE6FD6 /* PLUXAPISampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111A64572923D07300EE6FD6 /* PLUXAPISampleApp.swift */; };
 		111A645C2923D07400EE6FD6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 111A645B2923D07400EE6FD6 /* Assets.xcassets */; };
 		111A645F2923D07400EE6FD6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 111A645E2923D07400EE6FD6 /* Preview Assets.xcassets */; };
 		111A64692923D07500EE6FD6 /* ios_sampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111A64682923D07500EE6FD6 /* ios_sampleTests.swift */; };
 		111A64732923D07500EE6FD6 /* ios_sampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111A64722923D07500EE6FD6 /* ios_sampleUITests.swift */; };
 		111A64752923D07500EE6FD6 /* ios_sampleUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111A64742923D07500EE6FD6 /* ios_sampleUITestsLaunchTests.swift */; };
+		111A648B2923D23D00EE6FD6 /* PluxAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 111A64892923D22800EE6FD6 /* PluxAPI.framework */; };
+		111A648C2923D23D00EE6FD6 /* PluxAPI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 111A64892923D22800EE6FD6 /* PluxAPI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		111A64902923D28E00EE6FD6 /* ViewStates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111A648F2923D28E00EE6FD6 /* ViewStates.swift */; };
+		111A64922923D2C400EE6FD6 /* ScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111A64912923D2C400EE6FD6 /* ScanView.swift */; };
+		111A64942923D2F500EE6FD6 /* ScanView+ScanRountine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111A64932923D2F500EE6FD6 /* ScanView+ScanRountine.swift */; };
+		111A64962923D31600EE6FD6 /* ScanView+DeviceManagerDelegate..swift in Sources */ = {isa = PBXBuildFile; fileRef = 111A64952923D31600EE6FD6 /* ScanView+DeviceManagerDelegate..swift */; };
+		111A64992923D36700EE6FD6 /* DeviceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111A64982923D36700EE6FD6 /* DeviceManager.swift */; };
+		111A649C2923D51E00EE6FD6 /* LogManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111A649B2923D51E00EE6FD6 /* LogManager.swift */; };
+		111A649F2923D56200EE6FD6 /* DeviceRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111A649E2923D56200EE6FD6 /* DeviceRowView.swift */; };
+		111A64A12923D5BD00EE6FD6 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111A64A02923D5BD00EE6FD6 /* MainViewModel.swift */; };
+		111A64A32923D82400EE6FD6 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111A64A22923D82400EE6FD6 /* MainView.swift */; };
+		111A64A52923D87900EE6FD6 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 111A64A42923D87900EE6FD6 /* Colors.xcassets */; };
+		111A64A72923D91800EE6FD6 /* MainView+DeviceManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111A64A62923D91800EE6FD6 /* MainView+DeviceManagerDelegate.swift */; };
+		111A64AB2923DA9C00EE6FD6 /* DeviceInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111A64AA2923DA9C00EE6FD6 /* DeviceInfoView.swift */; };
+		111A64AD2923DAD400EE6FD6 /* AcquisitionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111A64AC2923DAD400EE6FD6 /* AcquisitionView.swift */; };
+		111A64AF2923EF1B00EE6FD6 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 111A64AE2923EF1B00EE6FD6 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,10 +48,23 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		111A648D2923D23D00EE6FD6 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				111A648C2923D23D00EE6FD6 /* PluxAPI.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		111A64542923D07300EE6FD6 /* ios-sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios-sample.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		111A64572923D07300EE6FD6 /* ios_sampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ios_sampleApp.swift; sourceTree = "<group>"; };
-		111A64592923D07300EE6FD6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		111A64572923D07300EE6FD6 /* PLUXAPISampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PLUXAPISampleApp.swift; sourceTree = "<group>"; };
 		111A645B2923D07400EE6FD6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		111A645E2923D07400EE6FD6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		111A64642923D07500EE6FD6 /* ios-sampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ios-sampleTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,6 +72,21 @@
 		111A646E2923D07500EE6FD6 /* ios-sampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ios-sampleUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		111A64722923D07500EE6FD6 /* ios_sampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ios_sampleUITests.swift; sourceTree = "<group>"; };
 		111A64742923D07500EE6FD6 /* ios_sampleUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ios_sampleUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		111A64892923D22800EE6FD6 /* PluxAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PluxAPI.framework; sourceTree = "<group>"; };
+		111A648F2923D28E00EE6FD6 /* ViewStates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewStates.swift; sourceTree = "<group>"; };
+		111A64912923D2C400EE6FD6 /* ScanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanView.swift; sourceTree = "<group>"; };
+		111A64932923D2F500EE6FD6 /* ScanView+ScanRountine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScanView+ScanRountine.swift"; sourceTree = "<group>"; };
+		111A64952923D31600EE6FD6 /* ScanView+DeviceManagerDelegate..swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScanView+DeviceManagerDelegate..swift"; sourceTree = "<group>"; };
+		111A64982923D36700EE6FD6 /* DeviceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceManager.swift; sourceTree = "<group>"; };
+		111A649B2923D51E00EE6FD6 /* LogManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogManager.swift; sourceTree = "<group>"; };
+		111A649E2923D56200EE6FD6 /* DeviceRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceRowView.swift; sourceTree = "<group>"; };
+		111A64A02923D5BD00EE6FD6 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		111A64A22923D82400EE6FD6 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		111A64A42923D87900EE6FD6 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		111A64A62923D91800EE6FD6 /* MainView+DeviceManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainView+DeviceManagerDelegate.swift"; sourceTree = "<group>"; };
+		111A64AA2923DA9C00EE6FD6 /* DeviceInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInfoView.swift; sourceTree = "<group>"; };
+		111A64AC2923DAD400EE6FD6 /* AcquisitionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcquisitionView.swift; sourceTree = "<group>"; };
+		111A64AE2923EF1B00EE6FD6 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				111A648B2923D23D00EE6FD6 /* PluxAPI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +118,7 @@
 		111A644B2923D07300EE6FD6 = {
 			isa = PBXGroup;
 			children = (
+				111A64AE2923EF1B00EE6FD6 /* README.md */,
 				111A64562923D07300EE6FD6 /* ios-sample */,
 				111A64672923D07500EE6FD6 /* ios-sampleTests */,
 				111A64712923D07500EE6FD6 /* ios-sampleUITests */,
@@ -94,9 +139,12 @@
 		111A64562923D07300EE6FD6 /* ios-sample */ = {
 			isa = PBXGroup;
 			children = (
-				111A64572923D07300EE6FD6 /* ios_sampleApp.swift */,
-				111A64592923D07300EE6FD6 /* ContentView.swift */,
-				111A645B2923D07400EE6FD6 /* Assets.xcassets */,
+				111A64862923D0F100EE6FD6 /* Common */,
+				111A64852923D0E800EE6FD6 /* StoryBoards */,
+				111A64842923D0E000EE6FD6 /* Models */,
+				111A64832923D0D800EE6FD6 /* Resources */,
+				111A64822923D0CA00EE6FD6 /* Library */,
+				111A64812923D0C300EE6FD6 /* Application */,
 				111A645D2923D07400EE6FD6 /* Preview Content */,
 			);
 			path = "ios-sample";
@@ -127,6 +175,128 @@
 			path = "ios-sampleUITests";
 			sourceTree = "<group>";
 		};
+		111A64812923D0C300EE6FD6 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				111A64572923D07300EE6FD6 /* PLUXAPISampleApp.swift */,
+				111A64882923D11200EE6FD6 /* Scan */,
+				111A64872923D10D00EE6FD6 /* Main */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		111A64822923D0CA00EE6FD6 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				111A64892923D22800EE6FD6 /* PluxAPI.framework */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		111A64832923D0D800EE6FD6 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				111A64A42923D87900EE6FD6 /* Colors.xcassets */,
+				111A645B2923D07400EE6FD6 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		111A64842923D0E000EE6FD6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				111A64A02923D5BD00EE6FD6 /* MainViewModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		111A64852923D0E800EE6FD6 /* StoryBoards */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = StoryBoards;
+			sourceTree = "<group>";
+		};
+		111A64862923D0F100EE6FD6 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				111A649D2923D55200EE6FD6 /* Views */,
+				111A649A2923D51100EE6FD6 /* Utils */,
+				111A64972923D34F00EE6FD6 /* Managers */,
+				111A648E2923D26F00EE6FD6 /* Enums */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		111A64872923D10D00EE6FD6 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				111A64A92923DA8100EE6FD6 /* AcquisitionView */,
+				111A64A82923DA7800EE6FD6 /* DeviceInfoView */,
+				111A64A22923D82400EE6FD6 /* MainView.swift */,
+				111A64A62923D91800EE6FD6 /* MainView+DeviceManagerDelegate.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		111A64882923D11200EE6FD6 /* Scan */ = {
+			isa = PBXGroup;
+			children = (
+				111A64912923D2C400EE6FD6 /* ScanView.swift */,
+				111A64932923D2F500EE6FD6 /* ScanView+ScanRountine.swift */,
+				111A64952923D31600EE6FD6 /* ScanView+DeviceManagerDelegate..swift */,
+			);
+			path = Scan;
+			sourceTree = "<group>";
+		};
+		111A648E2923D26F00EE6FD6 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				111A648F2923D28E00EE6FD6 /* ViewStates.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
+		111A64972923D34F00EE6FD6 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				111A64982923D36700EE6FD6 /* DeviceManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		111A649A2923D51100EE6FD6 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				111A649B2923D51E00EE6FD6 /* LogManager.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		111A649D2923D55200EE6FD6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				111A649E2923D56200EE6FD6 /* DeviceRowView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		111A64A82923DA7800EE6FD6 /* DeviceInfoView */ = {
+			isa = PBXGroup;
+			children = (
+				111A64AA2923DA9C00EE6FD6 /* DeviceInfoView.swift */,
+			);
+			path = DeviceInfoView;
+			sourceTree = "<group>";
+		};
+		111A64A92923DA8100EE6FD6 /* AcquisitionView */ = {
+			isa = PBXGroup;
+			children = (
+				111A64AC2923DAD400EE6FD6 /* AcquisitionView.swift */,
+			);
+			path = AcquisitionView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -137,6 +307,7 @@
 				111A64502923D07300EE6FD6 /* Sources */,
 				111A64512923D07300EE6FD6 /* Frameworks */,
 				111A64522923D07300EE6FD6 /* Resources */,
+				111A648D2923D23D00EE6FD6 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -207,7 +378,7 @@
 				};
 			};
 			buildConfigurationList = 111A644F2923D07300EE6FD6 /* Build configuration list for PBXProject "ios-sample" */;
-			compatibilityVersion = "Xcode 14.0";
+			compatibilityVersion = "Xcode 12.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -231,7 +402,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				111A64A52923D87900EE6FD6 /* Colors.xcassets in Resources */,
 				111A645F2923D07400EE6FD6 /* Preview Assets.xcassets in Resources */,
+				111A64AF2923EF1B00EE6FD6 /* README.md in Resources */,
 				111A645C2923D07400EE6FD6 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -257,8 +430,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				111A645A2923D07300EE6FD6 /* ContentView.swift in Sources */,
-				111A64582923D07300EE6FD6 /* ios_sampleApp.swift in Sources */,
+				111A64962923D31600EE6FD6 /* ScanView+DeviceManagerDelegate..swift in Sources */,
+				111A649F2923D56200EE6FD6 /* DeviceRowView.swift in Sources */,
+				111A64AB2923DA9C00EE6FD6 /* DeviceInfoView.swift in Sources */,
+				111A64992923D36700EE6FD6 /* DeviceManager.swift in Sources */,
+				111A64A32923D82400EE6FD6 /* MainView.swift in Sources */,
+				111A64902923D28E00EE6FD6 /* ViewStates.swift in Sources */,
+				111A64582923D07300EE6FD6 /* PLUXAPISampleApp.swift in Sources */,
+				111A649C2923D51E00EE6FD6 /* LogManager.swift in Sources */,
+				111A64942923D2F500EE6FD6 /* ScanView+ScanRountine.swift in Sources */,
+				111A64AD2923DAD400EE6FD6 /* AcquisitionView.swift in Sources */,
+				111A64922923D2C400EE6FD6 /* ScanView.swift in Sources */,
+				111A64A12923D5BD00EE6FD6 /* MainViewModel.swift in Sources */,
+				111A64A72923D91800EE6FD6 /* MainView+DeviceManagerDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -419,7 +603,13 @@
 				DEVELOPMENT_ASSET_PATHS = "\"ios-sample/Preview Content\"";
 				DEVELOPMENT_TEAM = RZAFR8A724;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ios-sample/Library",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "ios-sample uses BLE to connect to PLUX devices.";
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "ios-sample uses BLE to connect to PLUX devices.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -448,7 +638,13 @@
 				DEVELOPMENT_ASSET_PATHS = "\"ios-sample/Preview Content\"";
 				DEVELOPMENT_TEAM = RZAFR8A724;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ios-sample/Library",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "ios-sample uses BLE to connect to PLUX devices.";
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "ios-sample uses BLE to connect to PLUX devices.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

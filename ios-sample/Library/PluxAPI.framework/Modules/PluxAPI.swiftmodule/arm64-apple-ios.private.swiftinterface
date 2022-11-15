@@ -1,0 +1,545 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.7.1 (swiftlang-5.7.1.135.3 clang-1400.0.29.51)
+// swift-module-flags: -target arm64-apple-ios14.5 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -module-name PluxAPI
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+import CoreBluetooth
+import Foundation
+@_exported import PluxAPI
+import Swift
+import UIKit
+import _Concurrency
+import _StringProcessing
+@objc @_hasMissingDesignatedInitializers open class PXSchedules : ObjectiveC.NSObject {
+  final public let identifier: Swift.String
+  final public let runningSchedule: Swift.Int
+  final public let scheduleList: [PluxAPI.PXSchedule]
+  @objc override dynamic open var description: Swift.String {
+    @objc get
+  }
+  @objc deinit
+}
+@objc @_hasMissingDesignatedInitializers open class PXSchedule : ObjectiveC.NSObject {
+  final public let startTime: Swift.CLong
+  final public let duration: Swift.CLong
+  final public let nRepeats: Swift.Int
+  final public let repeatPeriod: Swift.Int
+  final public let baseFreq: Swift.Float
+  final public let nSensors: Swift.Int
+  final public let sources: [PluxAPI.PXSource]
+  @objc override dynamic open var description: Swift.String {
+    @objc get
+  }
+  @objc deinit
+}
+@objc @_hasMissingDesignatedInitializers open class PXBatteryEvent : ObjectiveC.NSObject {
+  final public let identifier: Swift.String
+  final public let batteryLevel: Swift.Int
+  @objc override dynamic open var description: Swift.String {
+    @objc get
+  }
+  @objc deinit
+}
+@objc @_hasMissingDesignatedInitializers open class PXDigitalInputChangeEvent : ObjectiveC.NSObject {
+  final public let identifier: Swift.String
+  final public let clockID: Swift.Int
+  final public let clock: Swift.CLong
+  final public let state: Swift.Int
+  @objc override dynamic open var description: Swift.String {
+    @objc get
+  }
+  @objc deinit
+}
+@objc @_hasMissingDesignatedInitializers open class PXDeviceProperties : ObjectiveC.NSObject {
+  final public let path: Swift.String
+  public var productID: Swift.Int
+  public var hwVersion: Swift.Int
+  public var fwVersion: Swift.Int
+  public var uid: Swift.String
+  public var deviceDescription: Swift.String
+  public var memorySize: Swift.CLong
+  @objc override dynamic open var description: Swift.String {
+    @objc get
+  }
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers open class PXReplaySessionParams : ObjectiveC.NSObject {
+  @objc override dynamic open var description: Swift.String {
+    @objc get
+  }
+  @objc deinit
+}
+@objc @_hasMissingDesignatedInitializers open class PXGetParameters : ObjectiveC.NSObject {
+  final public let identifier: Swift.String
+  final public let paramArray: [Swift.UInt8]
+  @objc override dynamic open var description: Swift.String {
+    @objc get
+  }
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers open class PXNetsensingDevice : PluxAPI.PXDevice {
+  override public init(deviceName: Swift.String, deviceUUID: Swift.String, peripheral: CoreBluetooth.CBPeripheral)
+  @objc override dynamic public func parseReceivedDataFromCharacteristic(_ characteristic: CoreBluetooth.CBCharacteristic)
+  @objc deinit
+}
+@objc @_hasMissingDesignatedInitializers open class PXClockSynchronizationEvent : ObjectiveC.NSObject {
+  final public let identifier: Swift.String
+  final public let clocks: [Swift.Int : Swift.CLong]
+  @objc override dynamic open var description: Swift.String {
+    @objc get
+  }
+  @objc deinit
+}
+extension Foundation.Date {
+  public static var currentTimeStampInSeconds: Swift.CLong {
+    get
+  }
+  public static var currentTimeStampInMilliSeconds: Swift.CLong {
+    get
+  }
+}
+@objc @_hasMissingDesignatedInitializers open class PXDeviceIdentifier : ObjectiveC.NSObject {
+  final public let identifier: Swift.String
+  @objc override dynamic open var description: Swift.String {
+    @objc get
+  }
+  @objc deinit
+}
+@objc @_hasMissingDesignatedInitializers open class PXSDSize : ObjectiveC.NSObject {
+  final public let identifier: Swift.String
+  final public let nBlocks: Swift.CLong
+  final public let size: Swift.Float
+  final public let sizeBytes: Swift.CLong
+  @objc override dynamic open var description: Swift.String {
+    @objc get
+  }
+  @objc deinit
+}
+@objc public protocol PXBioPluxManagerDelegate : ObjectiveC.NSObjectProtocol {
+  @objc optional func onDeviceFound(_ device: PluxAPI.PXDevice)
+  @objc optional func onConnectionStateChanged(_ device: PluxAPI.PXDevice, state: PluxAPI.States)
+  @objc optional func didFailToConnectDevice(_ device: PluxAPI.PXDevice)
+  @objc optional func onDeviceReady(_ device: PluxAPI.PXDevice, properties: PluxAPI.PXDeviceProperties)
+  @objc optional func onError(_ device: PluxAPI.PXDevice, error: PluxAPI.PXCommandErrorReply)
+  @objc optional func onDataAvailable(_ device: PluxAPI.PXDevice, data: PluxAPI.PXPluxFrame)
+  @objc optional func onEventAvailable(_ device: PluxAPI.PXDevice, event: ObjectiveC.NSObject)
+  @objc optional func onFileDataAvailable(_ device: PluxAPI.PXDevice, data: [Swift.UInt8])
+  @objc optional func didBluetoothPoweredOff()
+  @objc optional func didBluetoothPoweredOn()
+}
+extension PluxAPI.PXBioPluxManagerDelegate {
+  public func didDiscoverNewDevice(_ device: PluxAPI.PXDevice)
+  public func onConnectionStateChanged(_ device: PluxAPI.PXDevice, state: PluxAPI.States)
+  public func didFailToConnectDevice(_ device: PluxAPI.PXDevice)
+  public func onDeviceReady(_ device: PluxAPI.PXDevice, properties: PluxAPI.PXDeviceProperties)
+  public func onDataAvailable(_ device: PluxAPI.PXDevice, data: PluxAPI.PXPluxFrame)
+  public func onEventAvailable(_ device: PluxAPI.PXDevice, event: ObjectiveC.NSObject)
+  public func onFileDataAvailable(_ device: PluxAPI.PXDevice, data: [Swift.UInt8])
+  public func didBluetoothPoweredOff()
+  public func didBluetoothPoweredOn()
+}
+@objc @_inheritsConvenienceInitializers open class PXBioPluxManager : ObjectiveC.NSObject, CoreBluetooth.CBCentralManagerDelegate {
+  open var delegate: PluxAPI.PXBioPluxManagerDelegate?
+  open var devices: [Swift.String : PluxAPI.PXDevice]!
+  open var logLevel: PluxAPI.PXLogLevel {
+    get
+    set
+  }
+  @objc override dynamic public init()
+  open func scanDevices()
+  open func stopScanDevices()
+  open func connectDevice(_ device: PluxAPI.PXDevice)
+  open func disconnectDevice(_ device: PluxAPI.PXDevice)
+  open func cancelConnection(_ device: PluxAPI.PXDevice)
+  @objc open func centralManagerDidUpdateState(_ central: CoreBluetooth.CBCentralManager)
+  @objc open func centralManager(_ central: CoreBluetooth.CBCentralManager, didDiscover peripheral: CoreBluetooth.CBPeripheral, advertisementData: [Swift.String : Any], rssi RSSI: Foundation.NSNumber)
+  @objc open func centralManager(_ central: CoreBluetooth.CBCentralManager, didConnect peripheral: CoreBluetooth.CBPeripheral)
+  @objc open func centralManager(_ central: CoreBluetooth.CBCentralManager, didDisconnectPeripheral peripheral: CoreBluetooth.CBPeripheral, error: Swift.Error?)
+  @objc open func centralManager(_ central: CoreBluetooth.CBCentralManager, didFailToConnect peripheral: CoreBluetooth.CBPeripheral, error: Swift.Error?)
+  @objc deinit
+}
+@objc @_hasMissingDesignatedInitializers open class PXCommandErrorReply : ObjectiveC.NSObject {
+  final public let identifier: Swift.String
+  final public let command: PluxAPI.PXCommandIdentifier
+  final public let error: PluxAPI.PXCommandError
+  @objc override dynamic open var description: Swift.String {
+    @objc get
+  }
+  @objc deinit
+}
+@objc @_hasMissingDesignatedInitializers open class PXSession : ObjectiveC.NSObject {
+  final public let identifier: Swift.String
+  final public let firstBlockAddress: Swift.Int
+  final public let sessionInfo: PluxAPI.PXSessionInfo
+  final public let sessionText: Swift.String
+  final public let optionalData: Swift.String
+  final public let sensorsInfo: PluxAPI.PXSensorsInfo
+  @objc override dynamic open var description: Swift.String {
+    @objc get
+  }
+  @objc deinit
+}
+@objc @_hasMissingDesignatedInitializers open class PXSensorsInfo : ObjectiveC.NSObject {
+  final public let nSensors: Swift.Int
+  final public let sensorsConfiguration: [PluxAPI.PXSensorConfiguration]
+  @objc override dynamic open var description: Swift.String {
+    @objc get
+  }
+  @objc deinit
+}
+extension PluxAPI.PXDevice {
+  @objc dynamic open func peripheral(_ peripheral: CoreBluetooth.CBPeripheral, didDiscoverServices error: Swift.Error?)
+  @objc dynamic open func peripheral(_ peripheral: CoreBluetooth.CBPeripheral, didDiscoverCharacteristicsFor service: CoreBluetooth.CBService, error: Swift.Error?)
+  @objc dynamic open func peripheral(_ peripheral: CoreBluetooth.CBPeripheral, didWriteValueFor characteristic: CoreBluetooth.CBCharacteristic, error: Swift.Error?)
+  @objc dynamic open func peripheral(_ peripheral: CoreBluetooth.CBPeripheral, didUpdateValueFor characteristic: CoreBluetooth.CBCharacteristic, error: Swift.Error?)
+  @objc dynamic open func peripheral(_ peripheral: CoreBluetooth.CBPeripheral, didDiscoverDescriptorsFor characteristic: CoreBluetooth.CBCharacteristic, error: Swift.Error?)
+  @objc dynamic open func peripheral(_ peripheral: CoreBluetooth.CBPeripheral, didWriteValueFor descriptor: CoreBluetooth.CBDescriptor, error: Swift.Error?)
+  @objc dynamic open func peripheral(_ peripheral: CoreBluetooth.CBPeripheral, didUpdateValueFor descriptor: CoreBluetooth.CBDescriptor, error: Swift.Error?)
+  @objc dynamic open func peripheral(_ peripheral: CoreBluetooth.CBPeripheral, didUpdateNotificationStateFor characteristic: CoreBluetooth.CBCharacteristic, error: Swift.Error?)
+  @objc dynamic public func parseReceivedDataFromCharacteristic(_ characteristic: CoreBluetooth.CBCharacteristic)
+}
+@objc @_hasMissingDesignatedInitializers open class PXPluxFrame : ObjectiveC.NSObject {
+  final public let identifier: Swift.String
+  final public let sequence: Swift.Int
+  final public let analogData: [Swift.Int]
+  final public let digitalInput: Swift.Int
+  final public let comments: Swift.String
+  @objc override dynamic open var description: Swift.String {
+    @objc get
+  }
+  @objc deinit
+}
+@objc @_hasMissingDesignatedInitializers open class PXGetSessions : ObjectiveC.NSObject {
+  final public let identifier: Swift.String
+  final public let sessions: [PluxAPI.PXSession]
+  @objc override dynamic open var description: Swift.String {
+    @objc get
+  }
+  @objc deinit
+}
+@objc @_hasMissingDesignatedInitializers open class PXDeviceTime : ObjectiveC.NSObject {
+  final public let identifier: Swift.String
+  final public let time: Swift.CLong
+  @objc override dynamic open var description: Swift.String {
+    @objc get
+  }
+  @objc deinit
+}
+@objc public protocol PXDeviceDelegate : ObjectiveC.NSObjectProtocol {
+  @objc optional func onDataParsed(_ result: Swift.Bool, response: Swift.AnyObject)
+  @objc optional func onIncompleteData(_ data: [Swift.UInt8])
+  @objc optional func onReplaySessionParamUpdate(_ params: PluxAPI.PXReplaySessionParams)
+  @objc optional func onFileDataReceived(_ fileData: [Swift.UInt8])
+}
+extension PluxAPI.PXDeviceDelegate {
+  public func onDataParsed(_ result: Swift.Bool, response: Swift.AnyObject)
+  public func onIncompleteData(_ data: [Swift.UInt8])
+  public func onReplaySessionParamUpdate(_ params: PluxAPI.PXReplaySessionParams)
+  public func onFileDataReceived(_ fileData: [Swift.UInt8])
+}
+public typealias resultsCompletionBlock = ((_ result: Swift.Bool, _ data: ObjectiveC.NSObject?) -> Swift.Void)
+@objc open class PXDevice : ObjectiveC.NSObject, PluxAPI.PXDeviceDelegate, CoreBluetooth.CBPeripheralDelegate {
+  final public let deviceName: Swift.String
+  final public let deviceUUID: Swift.String
+  public var deviceType: PluxAPI.PXDevicesPID
+  open var delegate: PluxAPI.PXBioPluxManagerDelegate?
+  public init(deviceName: Swift.String, deviceUUID: Swift.String, peripheral: CoreBluetooth.CBPeripheral)
+  open func startAcquisitionWithBaseFrequency(_ baseFrequency: Swift.Float, sourcesArray: [PluxAPI.PXSource], completionBlock: PluxAPI.resultsCompletionBlock?)
+  open func stopAcquisitionWithCompletionBlock(_ completionBlock: PluxAPI.resultsCompletionBlock?)
+  open func addScheduleAcquisitionWithCompletionBlock(startTime: Swift.CLong, duration: Swift.CLong, nRepeats: Swift.Int, repeatPeriod: Swift.CLong, baseFrequency: Swift.Float, sourcesArray: [PluxAPI.PXSource], text: Swift.String, completionBlock: PluxAPI.resultsCompletionBlock?)
+  open func stopScheduleWithCompletionBlock(_ completionBlock: PluxAPI.resultsCompletionBlock?)
+  open func getSchedulesWithCompletionBlock(_ completionBlock: PluxAPI.resultsCompletionBlock?)
+  open func delAllSchedulesWithCompletionBlock(_ completionBlock: PluxAPI.resultsCompletionBlock?)
+  open func getPropertiesWithCompletionBlock(_ completionBlock: PluxAPI.resultsCompletionBlock?)
+  open func getVersionOfDeviceWithCompletionBlock(_ completionBlock: PluxAPI.resultsCompletionBlock?)
+  open func getUIdOfDeviceWithCompletionBlock(_ completionBlock: PluxAPI.resultsCompletionBlock?)
+  open func getDescriptionOfDeviceWithCompletionBlock(_ completionBlock: PluxAPI.resultsCompletionBlock?)
+  open func resetDevice()
+  open func getColorOfDeviceWithCompletionBlock(_ completionBlock: PluxAPI.resultsCompletionBlock?)
+  open func getSDCardSizeWithCompletionBlock(_ completionBlock: PluxAPI.resultsCompletionBlock?)
+  open func getNBlocksWrittenWithCompletionBlock(_ completionBlock: PluxAPI.resultsCompletionBlock?)
+  open func getTimeOfDeviceWithCompletionBlock(_ completionBlock: PluxAPI.resultsCompletionBlock?)
+  open func setTimeOfDeviceWithCompletionBlock(_ time: Swift.CLong, completionBlock: PluxAPI.resultsCompletionBlock?)
+  open func getSessionsWithCompletionBlock(_ completionBlock: PluxAPI.resultsCompletionBlock?)
+  open func replaySession(session: PluxAPI.PXSession)
+  open func pauseFrameEvents(_ completionBlock: PluxAPI.resultsCompletionBlock?)
+  open func resumeFrameEvents(_ completionBlock: PluxAPI.resultsCompletionBlock?)
+  open func getBatteryWithCompletionBlock(_ completionBlock: PluxAPI.resultsCompletionBlock?)
+  open func eraseSDCardSessionsWithCompletionBlock(_ completionBlock: PluxAPI.resultsCompletionBlock?)
+  open func setParametersWithCompletionBlock(_ port: Swift.Int, paramAdd: Swift.Int, paramArray: [Swift.UInt8], completionBlock: PluxAPI.resultsCompletionBlock?)
+  open func getParametersWithCompletionBlock(_ port: Swift.Int, paramAdd: Swift.Int, completionBlock: PluxAPI.resultsCompletionBlock?)
+  @objc open func onDataParsed(_ result: Swift.Bool, response: Swift.AnyObject)
+  @objc open func onIncompleteData(_ data: [Swift.UInt8])
+  @objc open func onReplaySessionParamUpdate(_ params: PluxAPI.PXReplaySessionParams)
+  @objc open func onFileDataReceived(_ fileData: [Swift.UInt8])
+  @objc deinit
+}
+@objc @_hasMissingDesignatedInitializers open class PXScheduleChangeEvent : ObjectiveC.NSObject {
+  final public let identifier: Swift.String
+  final public let action: Swift.Int
+  final public let scheduleID: Swift.CLong
+  @objc override dynamic open var description: Swift.String {
+    @objc get
+  }
+  @objc deinit
+}
+@objc @_hasMissingDesignatedInitializers open class PXPluxDevice : ObjectiveC.NSObject {
+  @objc override dynamic open var description: Swift.String {
+    @objc get
+  }
+  open var simpleDescription: Swift.String {
+    get
+  }
+  @objc deinit
+}
+@objc @_hasMissingDesignatedInitializers open class PXSimpleCommandReply : ObjectiveC.NSObject {
+  final public let identifier: Swift.String
+  final public let command: PluxAPI.PXCommandIdentifier
+  final public let reply: Swift.String
+  @objc override dynamic open var description: Swift.String {
+    @objc get
+  }
+  @objc deinit
+}
+@objc @_hasMissingDesignatedInitializers open class PXDeviceColor : ObjectiveC.NSObject {
+  final public let color: Swift.Int
+  @objc override dynamic open var description: Swift.String {
+    @objc get
+  }
+  @objc deinit
+}
+@objc open class PXSource : ObjectiveC.NSObject {
+  open var port: Swift.Int
+  open var numberOfBits: Swift.Int
+  open var channelMask: Swift.UInt8
+  open var frequencyDivisor: Swift.Int
+  public init(port: Swift.Int, numberOfBits: Swift.Int, channelMask: Swift.UInt8, frequencyDivisor: Swift.Int)
+  @objc override dynamic open var description: Swift.String {
+    @objc get
+  }
+  @objc deinit
+}
+@objc @_hasMissingDesignatedInitializers open class PXReplaySessionEvent : ObjectiveC.NSObject {
+  final public let identifier: Swift.String
+  final public let missingBlocks: Swift.Int
+  final public let totalBlocks: Swift.Int
+  @objc override dynamic open var description: Swift.String {
+    @objc get
+  }
+  @objc deinit
+}
+@objc @_hasMissingDesignatedInitializers open class PXDataFramesEvent : ObjectiveC.NSObject {
+  final public let identifier: Swift.String
+  final public let timestamp: Swift.CLong
+  final public let analog: Swift.Int
+  final public let accX: Swift.Int
+  final public let accY: Swift.Int
+  final public let accZ: Swift.Int
+  @objc override dynamic open var description: Swift.String {
+    @objc get
+  }
+  @objc deinit
+}
+@objc @_hasMissingDesignatedInitializers open class PXSensorConfiguration : ObjectiveC.NSObject {
+  final public let port: Swift.Int
+  final public let resolution: Swift.Int
+  final public let divider: Swift.Int
+  final public let chMask: Swift.Int
+  final public let sensorIDSize: Swift.Int
+  final public let uid: [Swift.UInt8]
+  @objc override dynamic open var description: Swift.String {
+    @objc get
+  }
+  @objc deinit
+}
+@objc public enum PXLogLevel : Swift.Int {
+  case none = 0
+  case simple
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public enum PXCommandIdentifier : Swift.Int {
+  case start = 0
+  case stop
+  case addSchedule
+  case stopSchedule
+  case getSchedules
+  case delAllSchedules
+  case version
+  case description
+  case getUId
+  case color
+  case reset
+  case getTime
+  case setTime
+  case getSDSize
+  case getNBlocksWritten
+  case pauseFrameEvents
+  case resumeFrameEvents
+  case readBlocks
+  case readHeaderBlock
+  case delSDCardSession
+  case getSessions
+  case replaySession
+  case getBattery
+  case eraseSDCardSessions
+  case setParameters
+  case getParameters
+  case unknown
+  public var description: Swift.String {
+    get
+  }
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public enum PXCommandError : Swift.UInt8, Swift.CaseIterable {
+  case crcInvalid = 0x00
+  case badCommand = 0x01
+  case noSensor = 0x02
+  case read = 0x03
+  case numMaxSchedules = 0x04
+  case badStart = 0x05
+  case badDuration = 0x06
+  case badNumRepeats = 0x07
+  case badRepeat = 0x08
+  case badCmdOverlap = 0x09
+  case badBaseFreq = 0x0a
+  case badNumSensors = 0x0b
+  case badDivisor = 0x0c
+  case badChMask = 0x0d
+  case sessionRunning = 0x0e
+  case badPort = 0x0f
+  case badParamIndex = 0x10
+  case badParamVal = 0x11
+  case badNumBlocks = 0x12
+  case badClass = 0x13
+  case badSerialNum = 0x14
+  case badStartAddr = 0x15
+  case badEndAddr = 0x16
+  case badTextSize = 0x17
+  case sessionNotRunning = 0x18
+  case badTime = 0x19
+  case intMemory = 0x80
+  case unknowError = 0xff
+  public static func getErrorByCode(code: Swift.UInt8) -> PluxAPI.PXCommandError
+  public var description: Swift.String {
+    get
+  }
+  public init?(rawValue: Swift.UInt8)
+  public typealias AllCases = [PluxAPI.PXCommandError]
+  public typealias RawValue = Swift.UInt8
+  public static var allCases: [PluxAPI.PXCommandError] {
+    get
+  }
+  public var rawValue: Swift.UInt8 {
+    get
+  }
+}
+@objc public enum PXDevicesPID : Swift.Int {
+  case deviceUnknown = 0
+  case bioPlux1
+  case bioSignalsPlux8ch
+  case bioSignalsPlux4ch
+  case biosignalsHybrid8
+  case motionPlux
+  case openBan
+  case fnirs
+  case ee
+  case usbDataCable
+  case gestureWatch
+  case muscleBan
+  case bitalino1
+  case bitalino2
+  case scoliosis
+  case hsatpro
+  case muscleBan2
+  case cardioBan
+  case respiBan
+  public var description: Swift.String {
+    get
+  }
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public enum States : Swift.Int {
+  case noConnection = 0
+  case listen
+  case connecting
+  case connected
+  case acquisition_trying
+  case acquisition_ok
+  case acquisition_stopping
+  case disconnected
+  case ended
+  public var description: Swift.String {
+    get
+  }
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public enum PXCommandResponseType : Swift.Int {
+  case commandReply = 0
+  case commandError
+  case events
+  case dataFrames
+  public var description: Swift.String {
+    get
+  }
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc @_hasMissingDesignatedInitializers open class PXNBlocksWritten : ObjectiveC.NSObject {
+  final public let identifier: Swift.String
+  final public let nBlocks: Swift.CLong
+  @objc override dynamic open var description: Swift.String {
+    @objc get
+  }
+  @objc deinit
+}
+@objc @_hasMissingDesignatedInitializers open class PXSessionInfo : ObjectiveC.NSObject {
+  final public let headerVersion: Swift.Int
+  final public let nHeaderBlocks: Swift.Int
+  final public let device: PluxAPI.PXPluxDevice
+  final public let macAddress: Swift.String
+  final public let baseFreq: Swift.Float
+  final public let startTime: Swift.CLong
+  final public let nFrames: Swift.Int
+  final public let scheduleID: Swift.CLong
+  final public let nDataBlocks: Swift.Int
+  @objc override dynamic open var description: Swift.String {
+    @objc get
+  }
+  @objc deinit
+}
+extension PluxAPI.PXLogLevel : Swift.Equatable {}
+extension PluxAPI.PXLogLevel : Swift.Hashable {}
+extension PluxAPI.PXLogLevel : Swift.RawRepresentable {}
+extension PluxAPI.PXCommandIdentifier : Swift.Equatable {}
+extension PluxAPI.PXCommandIdentifier : Swift.Hashable {}
+extension PluxAPI.PXCommandIdentifier : Swift.RawRepresentable {}
+extension PluxAPI.PXCommandError : Swift.Equatable {}
+extension PluxAPI.PXCommandError : Swift.Hashable {}
+extension PluxAPI.PXCommandError : Swift.RawRepresentable {}
+extension PluxAPI.PXDevicesPID : Swift.Equatable {}
+extension PluxAPI.PXDevicesPID : Swift.Hashable {}
+extension PluxAPI.PXDevicesPID : Swift.RawRepresentable {}
+extension PluxAPI.States : Swift.Equatable {}
+extension PluxAPI.States : Swift.Hashable {}
+extension PluxAPI.States : Swift.RawRepresentable {}
+extension PluxAPI.PXCommandResponseType : Swift.Equatable {}
+extension PluxAPI.PXCommandResponseType : Swift.Hashable {}
+extension PluxAPI.PXCommandResponseType : Swift.RawRepresentable {}
